@@ -95,7 +95,7 @@
 			dependencies = (
 			);
 			name = CarrierChangerPlusPlus;
-			productName = MultiCowHelper;
+			productName = CarrierChangerPlusPlus;
 			productReference = 257348442988BECD00308413 /* CarrierChangerPlusPlus.app */;
 			productType = "com.apple.product-type.application";
 		};
