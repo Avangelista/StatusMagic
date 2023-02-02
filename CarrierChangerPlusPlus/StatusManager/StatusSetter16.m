@@ -179,6 +179,8 @@ typedef struct {
 
 @implementation StatusSetter16
 
+// BELOW IS THE SAME IN iOS 15 AND 16
+
 - (void) applyChanges:(StatusBarOverrideData*)overrides {
     if (!StatusManager.sharedInstance.isMDCMode) {
         [UIStatusBarServer postStatusBarOverrideData:overrides];

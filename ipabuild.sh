@@ -16,13 +16,13 @@ mkdir build
 fi
 cd build
 
-# Build .app
+# Build .app for iOS 14 min
 xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
     -scheme $APPLICATION_NAME \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
     -destination 'generic/platform=iOS' \
-    IPHONEOS_DEPLOYMENT_TARGET="15.0" \
+    IPHONEOS_DEPLOYMENT_TARGET="14.0" \
     ONLY_ACTIVE_ARCH="NO" \
     CODE_SIGNING_ALLOWED="NO" \
 
