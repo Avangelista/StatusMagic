@@ -80,13 +80,13 @@ struct ContentView: View {
                     })
                     TextField("Status Bar Time Text", text: $timeText).onChange(of: timeText, perform: { nv in
                         // This is important.
-                        // Make sure the UTF-8 representation of the string does not exceed 100
+                        // Make sure the UTF-8 representation of the string does not exceed 64
                         // Otherwise the struct will overflow
                         var safeNv = nv
                         while safeNv.utf8CString.count > 64 {
                             safeNv = String(safeNv.prefix(safeNv.count - 1))
                         }
-                        carrierText = safeNv
+                        timeText = safeNv
                         if timeTextEnabled {
                             StatusManager.sharedInstance().setTime(safeNv)
                         }
@@ -94,6 +94,7 @@ struct ContentView: View {
                 }
 
                 Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator")) {
+                    // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
                     Group {
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
                             StatusManager.sharedInstance().hideDND(nv)
