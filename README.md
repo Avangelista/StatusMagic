@@ -1,2 +1,2 @@
-# CarrierChangerPlusPlus
-Change your carrier and totally customise your status bar icons on any TrollStore device!
+# StatusMagic
+Totally customise your status bar on any TrollStore device!
