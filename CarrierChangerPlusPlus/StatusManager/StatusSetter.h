@@ -12,8 +12,6 @@
 - (void) unsetTime;
 - (bool) isDNDHidden;
 - (void) hideDND:(bool)hidden;
-- (bool) isDateHidden;
-- (void) hideDate:(bool)hidden;
 - (bool) isAirplaneHidden;
 - (void) hideAirplane:(bool)hidden;
 - (bool) isCellHidden;

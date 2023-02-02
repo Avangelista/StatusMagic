@@ -297,23 +297,6 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
-- (bool) isDateHidden {
-    StatusBarOverrideData *overrides = [self getOverrides];
-    return overrides->overrideItemIsEnabled[DateStatusBarItem] == 1;
-}
-
-- (void) hideDate:(bool)hidden {
-    StatusBarOverrideData *overrides = [self getOverrides];
-    if (hidden) {
-        overrides->overrideItemIsEnabled[DateStatusBarItem] = 1;
-        overrides->values.itemIsEnabled[DateStatusBarItem] = 0;
-    } else {
-        overrides->overrideItemIsEnabled[DateStatusBarItem] = 0;
-    }
-    
-    [self applyChanges:overrides];
-}
-
 - (bool) isAirplaneHidden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideItemIsEnabled[AirplaneModeStatusBarItem] == 1;

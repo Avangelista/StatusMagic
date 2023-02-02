@@ -111,14 +111,6 @@
     [self.setter hideDND:hidden];
 }
 
-- (bool) isDateHidden {
-    return [self.setter isDateHidden];
-}
-
-- (void) hideDate:(bool)hidden {
-    [self.setter hideDate:hidden];
-}
-
 - (bool) isAirplaneHidden {
     return [self.setter isAirplaneHidden];
 }

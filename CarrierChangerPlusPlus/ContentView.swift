@@ -15,7 +15,6 @@ struct ContentView: View {
     @State private var timeText: String = StatusManager.sharedInstance().getTimeOverride()
     @State private var timeTextEnabled: Bool = StatusManager.sharedInstance().isTimeOverridden()
     @State private var DNDHidden: Bool = StatusManager.sharedInstance().isDNDHidden()
-    @State private var dateHidden: Bool = StatusManager.sharedInstance().isDateHidden()
     @State private var airplaneHidden: Bool = StatusManager.sharedInstance().isAirplaneHidden()
     @State private var cellHidden: Bool = StatusManager.sharedInstance().isCellHidden()
     @State private var wiFiHidden: Bool = StatusManager.sharedInstance().isWiFiHidden()
@@ -98,9 +97,6 @@ struct ContentView: View {
                     Group {
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
                             StatusManager.sharedInstance().hideDND(nv)
-                        })
-                        Toggle("Hide Date (iPad)", isOn: $dateHidden).onChange(of: dateHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideDate(nv)
                         })
                         Toggle("Hide Airplane Mode", isOn: $airplaneHidden).onChange(of: airplaneHidden, perform: { nv in
                             StatusManager.sharedInstance().hideAirplane(nv)
