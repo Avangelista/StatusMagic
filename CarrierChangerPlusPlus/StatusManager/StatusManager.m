@@ -34,7 +34,7 @@
 #import "StatusSetter.h"
 #import "StatusSetter16.h"
 #import "StatusSetter15.h"
-//#import "StatusSetter14.h"
+#import "StatusSetter14.h"
 
 @interface StatusManager ()
 @property (nonatomic, strong) id <StatusSetter> setter;
@@ -56,7 +56,7 @@
         } else if (@available(iOS 15, *)) {
             _setter =  [StatusSetter15 new];
         } else if (@available(iOS 14, *)) {
-//            _setter = [StatusSetter14 new];
+            _setter = [StatusSetter14 new];
         }
     }
     return _setter;
@@ -71,7 +71,6 @@
     self.MDCMode = mode;
 }
 
-#pragma mark Singleton instance
 + (StatusManager *)sharedInstance {
     static dispatch_once_t predicate = 0;
     __strong static id sharedObject = nil;

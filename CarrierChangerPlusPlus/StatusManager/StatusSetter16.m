@@ -220,8 +220,6 @@ char PADDING16[256] = {
     0xC0, 0x4F, 0x7C, 0x0F, 0xF6, 0xFF, 0xFF, 0xFF
 };
 
-// ALL BELOW HERE IS IDENTICAL IN EACH SETTER
-
 - (void) applyChanges:(StatusBarOverrideData*)overrides {
     if (!StatusManager.sharedInstance.isMDCMode) {
         [UIStatusBarServer postStatusBarOverrideData:overrides];
@@ -274,6 +272,8 @@ char PADDING16[256] = {
         }
     }
 }
+
+// ALL BELOW HERE IS IDENTICAL IN EACH SETTER
 
 - (bool) isCarrierOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];

@@ -1,12 +1,12 @@
 //
-//  SDStatusBarOverriderPost15_0.m
+//  SDStatusBarOverriderPost14_0.m
 //  SimulatorStatusMagic
 //
 //  Created by Chris Vasselli on 10/14/20.
 //  Copyright © 2020 Shiny Development. All rights reserved.
 //
 
-#import "StatusSetter15.h"
+#import "StatusSetter14.h"
 #import "StatusManager.h"
 
 typedef NS_ENUM(int, StatusBarItem) {
@@ -59,7 +59,7 @@ typedef NS_ENUM(unsigned int, BatteryState) {
 };
 
 typedef struct {
-  bool itemIsEnabled[44];
+  bool itemIsEnabled[43];
   char timeString[64];
   char shortTimeString[64];
   char dateString[256];
@@ -113,11 +113,10 @@ typedef struct {
   unsigned int secondaryCellularConfigured : 1;
   char primaryServiceBadgeString[100];
   char secondaryServiceBadgeString[100];
-  char quietModeImage[256];
 } StatusBarRawData;
 
 typedef struct {
-  bool overrideItemIsEnabled[44];
+  bool overrideItemIsEnabled[43];
   unsigned int overrideTimeString : 1;
   unsigned int overrideDateString : 1;
   unsigned int overrideGsmSignalStrengthRaw : 1;
@@ -152,7 +151,6 @@ typedef struct {
   unsigned int overrideSecondaryCellularConfigured : 1;
   unsigned int overridePrimaryServiceBadgeString : 1;
   unsigned int overrideSecondaryServiceBadgeString : 1;
-  unsigned int overrideQuietModeImage : 1;
   StatusBarRawData values;
 } StatusBarOverrideData;
 
@@ -179,66 +177,14 @@ typedef struct {
 
 @end
 
-@implementation StatusSetter15
-
-char PADDING15[256] = {
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0xA0, 0x38, 0xD1, 0x82, 0x02, 0x00, 0x00, 0x00,
-    0x50, 0x37, 0xD1, 0x82, 0x02, 0x00, 0x00, 0x00,
-    0x10, 0x1A, 0xD6, 0x82, 0x02, 0x00, 0x00, 0x00,
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x30, 0x1E, 0xD3, 0x82, 0x02, 0x00, 0x00, 0x00,
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-
-// ALL BELOW HERE IS IDENTICAL IN EACH SETTER
+@implementation StatusSetter14
 
 - (void) applyChanges:(StatusBarOverrideData*)overrides {
     if (!StatusManager.sharedInstance.isMDCMode) {
         [UIStatusBarServer postStatusBarOverrideData:overrides];
         [UIStatusBarServer permanentizeStatusBarOverrideData];
     } else {
-        FILE *outfile;
-        outfile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "w+");
-        if (outfile == NULL)
-        {
-            printf("Error opened file\n");
-            return;
-        }
-
-        size_t s1 = fwrite (overrides, sizeof(StatusBarOverrideData), 1, outfile);
-        size_t s2 = fwrite (PADDING15, sizeof(PADDING15), 1, outfile);
-
-        if(s1 != 0 && s2 != 0) {
-            printf("contents to file written successfully !\n");
-        } else {
-            printf("error writing file !\n");
-        }
-        fclose (outfile);
+        return;
     }
 }
 
@@ -246,29 +192,11 @@ char PADDING15[256] = {
     if (!StatusManager.sharedInstance.isMDCMode) {
         return [UIStatusBarServer getStatusBarOverrideData];
     } else {
-        NSFileManager *fileManager = [NSFileManager defaultManager];
-        NSString *path = @"/var/mobile/Library/SpringBoard/statusBarOverridesEditing";
-        if ([fileManager fileExistsAtPath:path]){
-            FILE *infile;
-            NSMutableData* data = [NSMutableData dataWithLength:sizeof(StatusBarOverrideData)];
-            StatusBarOverrideData* input = [data mutableBytes];
-            infile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "r");
-            if (infile == NULL)
-            {
-                printf("Error opening file\n");
-                return NULL;
-            }
-            if (fread(input, sizeof(StatusBarOverrideData), 1, infile) != 0) {
-                fclose (infile);
-                return input;
-            }
-            fclose (infile);
-            return NULL;
-        } else {
-            return [UIStatusBarServer getStatusBarOverrideData];
-        }
+        return NULL;
     }
 }
+
+// ALL BELOW HERE IS IDENTICAL IN EACH SETTER
 
 - (bool) isCarrierOverridden {
     StatusBarOverrideData *overrides = [self getOverrides];
