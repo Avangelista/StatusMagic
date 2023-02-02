@@ -1,5 +1,5 @@
 <p align="center">
-  <img src='https://raw.githubusercontent.com/Avangelista/StatusMagic/main/Images/RoundedIcon.png'>
+  <img src='https://raw.githubusercontent.com/Avangelista/StatusMagic/main/Images/RoundedIcon.png' width="100">
 </p>
 <h1 align="center">StatusMagic</h1>
 <p align="center">Totally customise your status bar on iOS 14.0 - 16.1.2 with no jailbreak!</p>
