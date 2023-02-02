@@ -8,13 +8,13 @@ WORKING_LOCATION="$(pwd)"
 APPLICATION_NAME=CarrierChangerPlusPlus
 CONFIGURATION=Debug
 
+if [ -e "$APPLICATION_NAME.ipa" ]; then
+rm "$APPLICATION_NAME.ipa"
+fi
 if [ ! -d "build" ]; then
 mkdir build
 fi
 cd build
-if [ -e "$APPLICATION_NAME-iOS-14.ipa" ]; then
-rm "$APPLICATION_NAME-iOS-14.ipa"
-fi
 
 # Build .app
 xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
@@ -22,7 +22,7 @@ xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
     -destination 'generic/platform=iOS' \
-    IPHONEOS_DEPLOYMENT_TARGET="14.0" \
+    IPHONEOS_DEPLOYMENT_TARGET="15.0" \
     ONLY_ACTIVE_ARCH="NO" \
     CODE_SIGNING_ALLOWED="NO" \
 
@@ -47,10 +47,10 @@ ldid -S"$WORKING_LOCATION/$APPLICATION_NAME/$APPLICATION_NAME.entitlements" "$TA
 rm -rf Payload
 mkdir Payload
 cp -r $APPLICATION_NAME.app Payload/$APPLICATION_NAME.app
-zip -vr "$APPLICATION_NAME-iOS-14.ipa" Payload
+zip -vr "$APPLICATION_NAME.ipa" Payload
 rm -rf $APPLICATION_NAME.app
 rm -rf Payload
 rm -rf DerivedData
-mv "$APPLICATION_NAME-iOS-14.ipa" "../$APPLICATION_NAME-iOS-14.ipa"
+mv "$APPLICATION_NAME.ipa" "../$APPLICATION_NAME.ipa"
 cd ..
 rm -rf build

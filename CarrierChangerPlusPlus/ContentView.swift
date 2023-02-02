@@ -10,38 +10,54 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.openURL) var openURL
     
-    @State private var carrierText: String = getCarrierOverride()
-    @State private var carrierTextEnabled: Bool = isCarrierOverridden()
-    @State private var timeText: String = getTimeOverride()
-    @State private var timeTextEnabled: Bool = isTimeOverridden()
-    @State private var DNDHidden: Bool = isDNDHidden()
-    @State private var dateHidden: Bool = isDateHidden()
-    @State private var airplaneHidden: Bool = isAirplaneHidden()
-    @State private var cellHidden: Bool = isCellHidden()
-    @State private var wiFiHidden: Bool = isWiFiHidden()
-    @State private var batteryHidden: Bool = isBatteryHidden()
-    @State private var bluetoothHidden: Bool = isBluetoothHidden()
-    @State private var alarmHidden: Bool = isAlarmHidden()
-    @State private var locationHidden: Bool = isLocationHidden()
-    @State private var rotationHidden: Bool = isRotationHidden()
-    @State private var airPlayHidden: Bool = isAirPlayHidden()
-    @State private var carPlayHidden: Bool = isCarPlayHidden()
-    @State private var VPNHidden: Bool = isVPNHidden()
+    @State private var carrierText: String = StatusManager.sharedInstance().getCarrierOverride()
+    @State private var carrierTextEnabled: Bool = StatusManager.sharedInstance().isCarrierOverridden()
+    @State private var timeText: String = StatusManager.sharedInstance().getTimeOverride()
+    @State private var timeTextEnabled: Bool = StatusManager.sharedInstance().isTimeOverridden()
+    @State private var DNDHidden: Bool = StatusManager.sharedInstance().isDNDHidden()
+    @State private var dateHidden: Bool = StatusManager.sharedInstance().isDateHidden()
+    @State private var airplaneHidden: Bool = StatusManager.sharedInstance().isAirplaneHidden()
+    @State private var cellHidden: Bool = StatusManager.sharedInstance().isCellHidden()
+    @State private var wiFiHidden: Bool = StatusManager.sharedInstance().isWiFiHidden()
+    @State private var batteryHidden: Bool = StatusManager.sharedInstance().isBatteryHidden()
+    @State private var bluetoothHidden: Bool = StatusManager.sharedInstance().isBluetoothHidden()
+    @State private var alarmHidden: Bool = StatusManager.sharedInstance().isAlarmHidden()
+    @State private var locationHidden: Bool = StatusManager.sharedInstance().isLocationHidden()
+    @State private var rotationHidden: Bool = StatusManager.sharedInstance().isRotationHidden()
+    @State private var airPlayHidden: Bool = StatusManager.sharedInstance().isAirPlayHidden()
+    @State private var carPlayHidden: Bool = StatusManager.sharedInstance().isCarPlayHidden()
+    @State private var VPNHidden: Bool = StatusManager.sharedInstance().isVPNHidden()
+    
+    let fm = FileManager.default
     
     var body: some View {
         NavigationView {
             List {
+                if (StatusManager.sharedInstance().isMDCMode()) {
+                    Section (footer: Text("Your device will respring.")) {
+                        Button("Apply") {
+                            if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing") {
+                                do {
+                                    _ = try fm.replaceItemAt(URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"), withItemAt: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing"))
+                                } catch {
+                                    print("Error replacing file: \(error)")
+                                }
+                                respringFrontboard()
+                            }
+                        }
+                    }
+                }
                 Section {
                     Toggle("Change Carrier Text", isOn: $carrierTextEnabled).onChange(of: carrierTextEnabled, perform: { nv in
                         if nv {
-                            setCarrier(carrierText)
+                            StatusManager.sharedInstance().setCarrier(carrierText)
                         } else {
-                            unsetCarrier()
+                            StatusManager.sharedInstance().unsetCarrier()
                         }
                     })
                     TextField("Carrier Text", text: $carrierText).onChange(of: carrierText, perform: { nv in
                         if carrierTextEnabled {
-                            setCarrier(nv)
+                            StatusManager.sharedInstance().setCarrier(nv)
                         }
                     })
                 }
@@ -49,59 +65,59 @@ struct ContentView: View {
                 Section (footer: Text("When set to blank on notched devices, this will display the carrier name.")) {
                     Toggle("Change Status Bar Time Text", isOn: $timeTextEnabled).onChange(of: timeTextEnabled, perform: { nv in
                         if nv {
-                            setTime(timeText)
+                            StatusManager.sharedInstance().setTime(timeText)
                         } else {
-                            unsetTime()
+                            StatusManager.sharedInstance().unsetTime()
                         }
                     })
                     TextField("Status Bar Time Text", text: $timeText).onChange(of: timeText, perform: { nv in
                         if timeTextEnabled {
-                            setTime(nv)
+                            StatusManager.sharedInstance().setTime(nv)
                         }
                     })
                 }
-                
-                Section (footer: Text("Version \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")")) {
+
+                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator\n\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCow" : "TrollStore")")) {
                     Group {
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
-                            hideDND(nv)
+                            StatusManager.sharedInstance().hideDND(nv)
                         })
                         Toggle("Hide Date (iPad)", isOn: $dateHidden).onChange(of: dateHidden, perform: { nv in
-                            hideDate(nv)
+                            StatusManager.sharedInstance().hideDate(nv)
                         })
                         Toggle("Hide Airplane Mode", isOn: $airplaneHidden).onChange(of: airplaneHidden, perform: { nv in
-                            hideAirplane(nv)
+                            StatusManager.sharedInstance().hideAirplane(nv)
                         })
-                        Toggle("Hide Cell", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
-                            hideCell(nv)
+                        Toggle("Hide Cellular*", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
+                            StatusManager.sharedInstance().hideCell(nv)
                         })
-                        Toggle("Hide Wi-Fi", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
-                            hideWiFi(nv)
+                        Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
+                            StatusManager.sharedInstance().hideWiFi(nv)
                         })
                         Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
-                            hideBattery(nv)
+                            StatusManager.sharedInstance().hideBattery(nv)
                         })
                         Toggle("Hide Bluetooth", isOn: $bluetoothHidden).onChange(of: bluetoothHidden, perform: { nv in
-                            hideBluetooth(nv)
+                            StatusManager.sharedInstance().hideBluetooth(nv)
                         })
                         Toggle("Hide Alarm", isOn: $alarmHidden).onChange(of: alarmHidden, perform: { nv in
-                            hideAlarm(nv)
+                            StatusManager.sharedInstance().hideAlarm(nv)
                         })
                         Toggle("Hide Location", isOn: $locationHidden).onChange(of: locationHidden, perform: { nv in
-                            hideLocation(nv)
+                            StatusManager.sharedInstance().hideLocation(nv)
                         })
                         Toggle("Hide Rotation Lock", isOn: $rotationHidden).onChange(of: rotationHidden, perform: { nv in
-                            hideRotation(nv)
+                            StatusManager.sharedInstance().hideRotation(nv)
                         })
                     }
                     Toggle("Hide AirPlay", isOn: $airPlayHidden).onChange(of: airPlayHidden, perform: { nv in
-                        hideAirPlay(nv)
+                        StatusManager.sharedInstance().hideAirPlay(nv)
                     })
                     Toggle("Hide CarPlay", isOn: $carPlayHidden).onChange(of: carPlayHidden, perform: { nv in
-                        hideCarPlay(nv)
+                        StatusManager.sharedInstance().hideCarPlay(nv)
                     })
                     Toggle("Hide VPN", isOn: $VPNHidden).onChange(of: VPNHidden, perform: { nv in
-                        hideVPN(nv)
+                        StatusManager.sharedInstance().hideVPN(nv)
                     })
                 }
             }

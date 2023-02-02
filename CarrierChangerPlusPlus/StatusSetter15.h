@@ -28,40 +28,13 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 */
+#pragma once
+#import "StatusSetter.h"
 
-#import <Foundation/Foundation.h>
+NS_ASSUME_NONNULL_BEGIN
 
-bool isCarrierOverridden(void);
-NSString* getCarrierOverride(void);
-void setCarrier(NSString* text);
-void unsetCarrier(void);
-bool isTimeOverridden(void);
-NSString* getTimeOverride(void);
-void setTime(NSString* text);
-void unsetTime(void);
-bool isDNDHidden(void);
-void hideDND(bool hidden);
-bool isDateHidden(void);
-void hideDate(bool hidden);
-bool isAirplaneHidden(void);
-void hideAirplane(bool hidden);
-bool isCellHidden(void);
-void hideCell(bool hidden);
-bool isWiFiHidden(void);
-void hideWiFi(bool hidden);
-bool isBatteryHidden(void);
-void hideBattery(bool hidden);
-bool isBluetoothHidden(void);
-void hideBluetooth(bool hidden);
-bool isAlarmHidden(void);
-void hideAlarm(bool hidden);
-bool isLocationHidden(void);
-void hideLocation(bool hidden);
-bool isRotationHidden(void);
-void hideRotation(bool hidden);
-bool isAirPlayHidden(void);
-void hideAirPlay(bool hidden);
-bool isCarPlayHidden(void);
-void hideCarPlay(bool hidden);
-bool isVPNHidden(void);
-void hideVPN(bool hidden);
+@interface StatusSetter15 : NSObject <StatusSetter>
+
+@end
+
+NS_ASSUME_NONNULL_END
