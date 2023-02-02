@@ -1,11 +1,4 @@
-//
-//  Alert++.swift
-//  Evyrest
-//
-//  Created by exerhythm on 14.12.2022.
-//
-
-// MARK: cause *THEY SUCK* in SwiftUI :trollface:
+//  Created by sourcelocation on 14.12.2022.
 
 import UIKit
 

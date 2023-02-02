@@ -56,8 +56,16 @@ struct ContentView: View {
                         }
                     })
                     TextField("Carrier Text", text: $carrierText).onChange(of: carrierText, perform: { nv in
+                        // This is important.
+                        // Make sure the UTF-8 representation of the string does not exceed 100
+                        // Otherwise the struct will overflow
+                        var safeNv = nv
+                        while safeNv.utf8CString.count > 100 {
+                            safeNv = String(safeNv.prefix(safeNv.count - 1))
+                        }
+                        carrierText = safeNv
                         if carrierTextEnabled {
-                            StatusManager.sharedInstance().setCarrier(nv)
+                            StatusManager.sharedInstance().setCarrier(safeNv)
                         }
                     })
                 }
@@ -71,13 +79,21 @@ struct ContentView: View {
                         }
                     })
                     TextField("Status Bar Time Text", text: $timeText).onChange(of: timeText, perform: { nv in
+                        // This is important.
+                        // Make sure the UTF-8 representation of the string does not exceed 100
+                        // Otherwise the struct will overflow
+                        var safeNv = nv
+                        while safeNv.utf8CString.count > 64 {
+                            safeNv = String(safeNv.prefix(safeNv.count - 1))
+                        }
+                        carrierText = safeNv
                         if timeTextEnabled {
-                            StatusManager.sharedInstance().setTime(nv)
+                            StatusManager.sharedInstance().setTime(safeNv)
                         }
                     })
                 }
 
-                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator\n\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCow" : "TrollStore")")) {
+                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator")) {
                     Group {
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
                             StatusManager.sharedInstance().hideDND(nv)
@@ -119,6 +135,19 @@ struct ContentView: View {
                     Toggle("Hide VPN", isOn: $VPNHidden).onChange(of: VPNHidden, perform: { nv in
                         StatusManager.sharedInstance().hideVPN(nv)
                     })
+                }
+                
+                Section (footer: Text("Your device will respring.\n\n\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
+                    Button("Reset All") {
+                        if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
+                            do {
+                                try fm.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"))
+                            } catch {
+                                print(error.localizedDescription)
+                            }
+                            respringFrontboard()
+                        }
+                    }
                 }
             }
             .navigationTitle("CarrierChanger++")

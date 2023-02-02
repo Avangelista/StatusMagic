@@ -1,11 +1,3 @@
-//
-//  SDStatusBarOverriderPost14_0.m
-//  SimulatorStatusMagic
-//
-//  Created by Chris Vasselli on 10/14/20.
-//  Copyright © 2020 Shiny Development. All rights reserved.
-//
-
 #import "StatusSetter14.h"
 #import "StatusManager.h"
 

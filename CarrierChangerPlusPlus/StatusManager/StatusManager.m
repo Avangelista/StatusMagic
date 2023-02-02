@@ -1,10 +1,3 @@
-//
-//  StatusManager.m
-//  CarrierChangerPlusPlus
-//
-//  Created by Rory Madden on 2/2/2023.
-//
-
 // --------------------------------------------------------------------------------
 // The MIT License (MIT)
 //

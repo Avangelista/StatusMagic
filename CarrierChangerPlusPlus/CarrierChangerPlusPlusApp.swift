@@ -59,6 +59,7 @@ struct CarrierChangerPlusPlusApp: App {
                 StatusManager.sharedInstance().setIsMDCMode(true)
             }
         }
+        
         let fm = FileManager.default
         if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing") {
             do {
@@ -67,6 +68,8 @@ struct CarrierChangerPlusPlusApp: App {
                 print(error.localizedDescription)
             }
         }
+        
+        checkForUpdates()
 #endif
     }
     
@@ -74,7 +77,6 @@ struct CarrierChangerPlusPlusApp: App {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/Avangelista/CarrierChangerPlusPlus/releases/latest") {
             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                 guard let data = data else { return }
-                
                 if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     if (json["tag_name"] as? String)?.compare(version, options: .numeric) == .orderedDescending {
                         UIApplication.shared.confirmAlert(title: "Update Available", body: "A new version of CarrierChanger++ is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?", onOK: {
@@ -86,18 +88,5 @@ struct CarrierChangerPlusPlusApp: App {
             task.resume()
         }
     }
-    
-//    func checkVersion() {
-//        if #available(iOS 16.0, *) {
-//            
-//        } else if #available(iOS 15.0, *) {
-//            
-//        } else if #available(iOS 14.0, *) {
-//            
-//        } else {
-//            UIApplication.shared.alert(body: "iOS version not supported. Please close the app.", withButton: false)
-//            return
-//        }
-//    }
 }
 

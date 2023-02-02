@@ -1,9 +1,3 @@
-//
-//  StatusSetter.h
-//  CarrierChangerPlusPlus
-//
-//  Created by Rory Madden on 2/2/2023.
-//
 #pragma once
 #import <Foundation/Foundation.h>
 
