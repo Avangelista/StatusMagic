@@ -13,7 +13,7 @@
 		25230F6C298B34700003C113 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 25230F66298B34700003C113 /* vm_unaligned_copy_switch_race.c */; };
 		25230F6D298B34700003C113 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 25230F67298B34700003C113 /* grant_full_disk_access.m */; };
 		25230F6E298B34700003C113 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 25230F68298B34700003C113 /* helpers.m */; };
-		257348482988BECD00308413 /* CarrierChangerPlusPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257348472988BECD00308413 /* CarrierChangerPlusPlusApp.swift */; };
+		257348482988BECD00308413 /* StatusMagicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257348472988BECD00308413 /* StatusMagicApp.swift */; };
 		2573484A2988BECD00308413 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257348492988BECD00308413 /* ContentView.swift */; };
 		2573484C2988BECE00308413 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2573484B2988BECE00308413 /* Assets.xcassets */; };
 		2573484F2988BECE00308413 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2573484E2988BECE00308413 /* Preview Assets.xcassets */; };
@@ -35,13 +35,13 @@
 		25230F69298B34700003C113 /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		25230F6A298B34700003C113 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 		25230F6B298B34700003C113 /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
-		257348442988BECD00308413 /* CarrierChangerPlusPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarrierChangerPlusPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		257348472988BECD00308413 /* CarrierChangerPlusPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarrierChangerPlusPlusApp.swift; sourceTree = "<group>"; };
+		257348442988BECD00308413 /* StatusMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatusMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		257348472988BECD00308413 /* StatusMagicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMagicApp.swift; sourceTree = "<group>"; };
 		257348492988BECD00308413 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2573484B2988BECE00308413 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2573484E2988BECE00308413 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		257348562988C18500308413 /* CarrierChangerPlusPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarrierChangerPlusPlus.entitlements; sourceTree = "<group>"; };
-		25CDCA262989BF9A0019B3E8 /* CarrierChangerPlusPlus-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarrierChangerPlusPlus-Bridging-Header.h"; sourceTree = "<group>"; };
+		257348562988C18500308413 /* StatusMagic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StatusMagic.entitlements; sourceTree = "<group>"; };
+		25CDCA262989BF9A0019B3E8 /* StatusMagic-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StatusMagic-Bridging-Header.h"; sourceTree = "<group>"; };
 		25CDCA362989C53E0019B3E8 /* StatusSetter15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter15.h; sourceTree = "<group>"; };
 		25CDCA422989C53E0019B3E8 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
 		25E790B42989F0E200CBC97E /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		2573483B2988BECD00308413 = {
 			isa = PBXGroup;
 			children = (
-				257348462988BECD00308413 /* CarrierChangerPlusPlus */,
+				257348462988BECD00308413 /* StatusMagic */,
 				257348452988BECD00308413 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,25 +106,25 @@
 		257348452988BECD00308413 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				257348442988BECD00308413 /* CarrierChangerPlusPlus.app */,
+				257348442988BECD00308413 /* StatusMagic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		257348462988BECD00308413 /* CarrierChangerPlusPlus */ = {
+		257348462988BECD00308413 /* StatusMagic */ = {
 			isa = PBXGroup;
 			children = (
-				257348562988C18500308413 /* CarrierChangerPlusPlus.entitlements */,
+				257348562988C18500308413 /* StatusMagic.entitlements */,
 				25230F70298B49420003C113 /* Extensions */,
 				25230F65298B34700003C113 /* Exploit */,
 				25230F6F298B49210003C113 /* StatusManager */,
 				257348492988BECD00308413 /* ContentView.swift */,
-				257348472988BECD00308413 /* CarrierChangerPlusPlusApp.swift */,
+				257348472988BECD00308413 /* StatusMagicApp.swift */,
 				2573484B2988BECE00308413 /* Assets.xcassets */,
 				2573484D2988BECE00308413 /* Preview Content */,
-				25CDCA262989BF9A0019B3E8 /* CarrierChangerPlusPlus-Bridging-Header.h */,
+				25CDCA262989BF9A0019B3E8 /* StatusMagic-Bridging-Header.h */,
 			);
-			path = CarrierChangerPlusPlus;
+			path = StatusMagic;
 			sourceTree = "<group>";
 		};
 		2573484D2988BECE00308413 /* Preview Content */ = {
@@ -138,9 +138,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		257348432988BECD00308413 /* CarrierChangerPlusPlus */ = {
+		257348432988BECD00308413 /* StatusMagic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 257348522988BECE00308413 /* Build configuration list for PBXNativeTarget "CarrierChangerPlusPlus" */;
+			buildConfigurationList = 257348522988BECE00308413 /* Build configuration list for PBXNativeTarget "StatusMagic" */;
 			buildPhases = (
 				257348402988BECD00308413 /* Sources */,
 				257348412988BECD00308413 /* Frameworks */,
@@ -150,9 +150,9 @@
 			);
 			dependencies = (
 			);
-			name = CarrierChangerPlusPlus;
-			productName = CarrierChangerPlusPlus;
-			productReference = 257348442988BECD00308413 /* CarrierChangerPlusPlus.app */;
+			name = StatusMagic;
+			productName = StatusMagic;
+			productReference = 257348442988BECD00308413 /* StatusMagic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -171,7 +171,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2573483F2988BECD00308413 /* Build configuration list for PBXProject "CarrierChangerPlusPlus" */;
+			buildConfigurationList = 2573483F2988BECD00308413 /* Build configuration list for PBXProject "StatusMagic" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -184,7 +184,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				257348432988BECD00308413 /* CarrierChangerPlusPlus */,
+				257348432988BECD00308413 /* StatusMagic */,
 			);
 		};
 /* End PBXProject section */
@@ -211,7 +211,7 @@
 				2573484A2988BECD00308413 /* ContentView.swift in Sources */,
 				25CDCA522989C53F0019B3E8 /* StatusSetter15.m in Sources */,
 				25230F61298B20A10003C113 /* StatusSetter14.m in Sources */,
-				257348482988BECD00308413 /* CarrierChangerPlusPlusApp.swift in Sources */,
+				257348482988BECD00308413 /* StatusMagicApp.swift in Sources */,
 				25230F6C298B34700003C113 /* vm_unaligned_copy_switch_race.c in Sources */,
 				25230F5F298B20900003C113 /* StatusSetter16.m in Sources */,
 				25230F6D298B34700003C113 /* grant_full_disk_access.m in Sources */,
@@ -342,14 +342,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CarrierChangerPlusPlus/CarrierChangerPlusPlus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StatusMagic/StatusMagic.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CarrierChangerPlusPlus/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"StatusMagic/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Carrier++";
+				INFOPLIST_KEY_CFBundleDisplayName = StatusMagic;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Tap \"OK\" to continue.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -361,13 +361,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.ContainerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.StatusMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CarrierChangerPlusPlus/CarrierChangerPlusPlus-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "StatusMagic/StatusMagic-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -380,14 +380,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = CarrierChangerPlusPlus/CarrierChangerPlusPlus.entitlements;
+				CODE_SIGN_ENTITLEMENTS = StatusMagic/StatusMagic.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CarrierChangerPlusPlus/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"StatusMagic/Preview Content\"";
 				DEVELOPMENT_TEAM = U67AKNW8PW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Carrier++";
+				INFOPLIST_KEY_CFBundleDisplayName = StatusMagic;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Tap \"OK\" to continue.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -399,13 +399,13 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.ContainerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.avangelista.StatusMagic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "CarrierChangerPlusPlus/CarrierChangerPlusPlus-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "StatusMagic/StatusMagic-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -414,7 +414,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2573483F2988BECD00308413 /* Build configuration list for PBXProject "CarrierChangerPlusPlus" */ = {
+		2573483F2988BECD00308413 /* Build configuration list for PBXProject "StatusMagic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				257348502988BECE00308413 /* Debug */,
@@ -423,7 +423,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		257348522988BECE00308413 /* Build configuration list for PBXNativeTarget "CarrierChangerPlusPlus" */ = {
+		257348522988BECE00308413 /* Build configuration list for PBXNativeTarget "StatusMagic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				257348532988BECE00308413 /* Debug */,

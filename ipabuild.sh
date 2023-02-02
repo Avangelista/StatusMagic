@@ -5,7 +5,7 @@ set -e
 cd "$(dirname "$0")"
 
 WORKING_LOCATION="$(pwd)"
-APPLICATION_NAME=CarrierChangerPlusPlus
+APPLICATION_NAME=StatusMagic
 CONFIGURATION=Debug
 
 if [ -e "$APPLICATION_NAME.ipa" ]; then

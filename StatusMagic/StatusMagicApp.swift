@@ -1,14 +1,7 @@
-//
-//  CarrierChanger++App.swift
-//  CarrierChanger++
-//
-//  Created by Rory Madden on 31/1/2023.
-//
-
 import SwiftUI
 
 @main
-struct CarrierChangerPlusPlusApp: App {
+struct StatusMagicApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView().onAppear {
@@ -74,13 +67,13 @@ struct CarrierChangerPlusPlusApp: App {
     }
     
     func checkForUpdates() {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/Avangelista/CarrierChangerPlusPlus/releases/latest") {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let url = URL(string: "https://api.github.com/repos/Avangelista/StatusMagic/releases/latest") {
             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                 guard let data = data else { return }
                 if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     if (json["tag_name"] as? String)?.compare(version, options: .numeric) == .orderedDescending {
-                        UIApplication.shared.confirmAlert(title: "Update Available", body: "A new version of CarrierChanger++ is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?", onOK: {
-                            UIApplication.shared.open(URL(string: "https://github.com/Avangelista/CarrierChangerPlusPlus/releases/latest")!)
+                        UIApplication.shared.confirmAlert(title: "Update Available", body: "A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?", onOK: {
+                            UIApplication.shared.open(URL(string: "https://github.com/Avangelista/StatusMagic/releases/latest")!)
                         }, noCancel: false)
                     }
                 }

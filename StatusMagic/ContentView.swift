@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  CarrierChanger++
-//
-//  Created by Rory Madden on 31/1/2023.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -134,7 +127,7 @@ struct ContentView: View {
                     })
                 }
                 
-                Section (footer: Text("Your device will respring.\n\n\nCarrierChanger++ by Avangelista\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
+                Section (footer: Text("Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
                     Button("Reset All") {
                         if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                             do {
@@ -147,12 +140,12 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("CarrierChanger++")
+            .navigationTitle("StatusMagic")
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        openURL(URL(string: "https://github.com/Avangelista/CarrierChangerPlusPlus")!)
+                        openURL(URL(string: "https://github.com/Avangelista/StatusMagic")!)
                     }) {
                         Image("github")
                             .resizable()
