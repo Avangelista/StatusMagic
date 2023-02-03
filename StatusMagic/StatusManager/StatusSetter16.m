@@ -53,7 +53,6 @@ typedef NS_ENUM(unsigned int, BatteryState) {
   BatteryStateUnplugged = 0
 };
 
-
 typedef struct {
   bool itemIsEnabled[45];
   char timeString[64];
@@ -179,7 +178,7 @@ typedef struct {
 
 @implementation StatusSetter16
 
-// BELOW IS THE SAME IN iOS 15 AND 16
+// BELOW IS THE SAME IN iOS 15, 16, AND 16.1
 
 - (void) applyChanges:(StatusBarOverrideData*)overrides {
     if (!StatusManager.sharedInstance.isMDCMode) {
@@ -231,7 +230,9 @@ typedef struct {
             fclose (infile);
             return NULL;
         } else {
-            return [UIStatusBarServer getStatusBarOverrideData];
+            StatusBarOverrideData* overrides = [UIStatusBarServer getStatusBarOverrideData];
+            [self applyChanges:overrides];
+            return overrides;
         }
     }
 }
@@ -283,6 +284,52 @@ typedef struct {
 - (void) unsetTime {
     StatusBarOverrideData *overrides = [self getOverrides];
     overrides->overrideTimeString = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isCrumbOverridden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideBreadcrumb == 1;
+}
+
+- (NSString*) getCrumbOverride {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    NSString* crumb = @(overrides->values.breadcrumbTitle);
+    if (crumb.length > 1) {
+        return [crumb substringToIndex:[crumb length] - 2];
+    } else {
+        return @"";
+    }
+}
+
+- (void) setCrumb:(NSString*)text {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    overrides->overrideBreadcrumb = 1;
+    strcpy(overrides->values.breadcrumbTitle, [[text stringByAppendingString:@" ▶"] cStringUsingEncoding:NSUTF8StringEncoding]);
+    [self applyChanges:overrides];
+}
+
+- (void) unsetCrumb {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    strcpy(overrides->values.breadcrumbTitle, [@"" cStringUsingEncoding:NSUTF8StringEncoding]);
+    overrides->overrideBreadcrumb = 0;
+    [self applyChanges:overrides];
+}
+
+- (bool) isClockHidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[TimeStatusBarItem] == 1;
+}
+
+- (void) hideClock:(bool)hidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (hidden) {
+        overrides->overrideItemIsEnabled[TimeStatusBarItem] = 1;
+        overrides->values.itemIsEnabled[TimeStatusBarItem] = 0;
+    } else {
+        overrides->overrideItemIsEnabled[TimeStatusBarItem] = 0;
+    }
+    
     [self applyChanges:overrides];
 }
 

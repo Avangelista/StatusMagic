@@ -23,8 +23,10 @@
 // --------------------------------------------------------------------------------
 
 #import <UIKit/UIKit.h>
+#import <mach-o/arch.h>
 #import "StatusManager.h"
 #import "StatusSetter.h"
+#import "StatusSetter16_1.h"
 #import "StatusSetter16.h"
 #import "StatusSetter15.h"
 #import "StatusSetter14.h"
@@ -44,7 +46,16 @@
 
 - (id<StatusSetter>)setter {
     if (!_setter) {
-        if (@available(iOS 16, *)) {
+        if (@available(iOS 16.1, *)) {
+            // TODO: explain why i did this
+            NXArchInfo *info = NXGetLocalArchInfo();
+            NSString *typeOfCpu = [NSString stringWithUTF8String:info->description];
+            if ([typeOfCpu isEqualToString:@"ARM64E"]) {
+                _setter = [StatusSetter16_1 new];
+            } else {
+                _setter = [StatusSetter16 new];
+            }
+        } else if (@available(iOS 16, *)) {
             _setter = [StatusSetter16 new];
         } else if (@available(iOS 15, *)) {
             _setter =  [StatusSetter15 new];
@@ -101,6 +112,30 @@
 
 - (void) unsetTime {
     [self.setter unsetTime];
+}
+
+- (bool) isCrumbOverridden {
+    return [self.setter isCrumbOverridden];
+}
+
+- (NSString*) getCrumbOverride {
+    return [self.setter getCrumbOverride];
+}
+
+- (void) setCrumb:(NSString*)text {
+    [self.setter setCrumb:text];
+}
+
+- (void) unsetCrumb {
+    [self.setter unsetCrumb];
+}
+
+- (bool) isClockHidden {
+    return [self.setter isClockHidden];
+}
+
+- (void) hideClock:(bool)hidden {
+    [self.setter hideClock:hidden];
 }
 
 - (bool) isDNDHidden {

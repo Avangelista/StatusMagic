@@ -7,6 +7,9 @@ struct ContentView: View {
     @State private var carrierTextEnabled: Bool = StatusManager.sharedInstance().isCarrierOverridden()
     @State private var timeText: String = StatusManager.sharedInstance().getTimeOverride()
     @State private var timeTextEnabled: Bool = StatusManager.sharedInstance().isTimeOverridden()
+    @State private var crumbText: String = StatusManager.sharedInstance().getCrumbOverride()
+    @State private var crumbTextEnabled: Bool = StatusManager.sharedInstance().isCrumbOverridden()
+    @State private var clockHidden: Bool = StatusManager.sharedInstance().isClockHidden()
     @State private var DNDHidden: Bool = StatusManager.sharedInstance().isDNDHidden()
     @State private var airplaneHidden: Bool = StatusManager.sharedInstance().isAirplaneHidden()
     @State private var cellHidden: Bool = StatusManager.sharedInstance().isCellHidden()
@@ -39,7 +42,8 @@ struct ContentView: View {
                         }
                     }
                 }
-                Section {
+                
+                Section (footer: Text("When set to blank on notched devices, this will display the carrier name.")) {
                     Toggle("Change Carrier Text", isOn: $carrierTextEnabled).onChange(of: carrierTextEnabled, perform: { nv in
                         if nv {
                             StatusManager.sharedInstance().setCarrier(carrierText)
@@ -60,9 +64,26 @@ struct ContentView: View {
                             StatusManager.sharedInstance().setCarrier(safeNv)
                         }
                     })
-                }
-                
-                Section (footer: Text("When set to blank on notched devices, this will display the carrier name.")) {
+                    Toggle("Change Breadcrumb Text", isOn: $crumbTextEnabled).onChange(of: crumbTextEnabled, perform: { nv in
+                        if nv {
+                            StatusManager.sharedInstance().setCrumb(crumbText)
+                        } else {
+                            StatusManager.sharedInstance().unsetCrumb()
+                        }
+                    })
+                    TextField("Breadcrumb Text", text: $crumbText).onChange(of: crumbText, perform: { nv in
+                        // This is important.
+                        // Make sure the UTF-8 representation of the string does not exceed 256
+                        // Otherwise the struct will overflow
+                        var safeNv = nv
+                        while (safeNv + " ▶").utf8CString.count > 256 {
+                            safeNv = String(safeNv.prefix(safeNv.count - 1))
+                        }
+                        crumbText = safeNv
+                        if crumbTextEnabled {
+                            StatusManager.sharedInstance().setCrumb(safeNv)
+                        }
+                    })
                     Toggle("Change Status Bar Time Text", isOn: $timeTextEnabled).onChange(of: timeTextEnabled, perform: { nv in
                         if nv {
                             StatusManager.sharedInstance().setTime(timeText)
@@ -88,6 +109,9 @@ struct ContentView: View {
                 Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator")) {
                     // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
                     Group {
+                        Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
+                            StatusManager.sharedInstance().hideClock(nv)
+                        })
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
                             StatusManager.sharedInstance().hideDND(nv)
                         })

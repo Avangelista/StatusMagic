@@ -10,6 +10,12 @@
 - (NSString*) getTimeOverride;
 - (void) setTime:(NSString*)text;
 - (void) unsetTime;
+- (bool) isCrumbOverridden;
+- (NSString*) getCrumbOverride;
+- (void) setCrumb:(NSString*)text;
+- (void) unsetCrumb;
+- (bool) isClockHidden;
+- (void) hideClock:(bool)hidden;
 - (bool) isDNDHidden;
 - (void) hideDND:(bool)hidden;
 - (bool) isAirplaneHidden;

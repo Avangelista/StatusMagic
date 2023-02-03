@@ -22,7 +22,6 @@ xcodebuild -project "$WORKING_LOCATION/$APPLICATION_NAME.xcodeproj" \
     -configuration Debug \
     -derivedDataPath "$WORKING_LOCATION/build/DerivedData" \
     -destination 'generic/platform=iOS' \
-    IPHONEOS_DEPLOYMENT_TARGET="14.0" \
     ONLY_ACTIVE_ARCH="NO" \
     CODE_SIGNING_ALLOWED="NO" \
 
