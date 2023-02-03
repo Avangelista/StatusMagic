@@ -23,7 +23,7 @@
 // --------------------------------------------------------------------------------
 
 #import <UIKit/UIKit.h>
-#import <mach-o/arch.h>
+#import <sys/utsname.h>
 #import "StatusManager.h"
 #import "StatusSetter.h"
 #import "StatusSetter16_1.h"
@@ -47,13 +47,24 @@
 - (id<StatusSetter>)setter {
     if (!_setter) {
         if (@available(iOS 16.1, *)) {
-            // TODO: explain why i did this
-            NXArchInfo *info = NXGetLocalArchInfo();
-            NSString *typeOfCpu = [NSString stringWithUTF8String:info->description];
-            if ([typeOfCpu isEqualToString:@"ARM64E"]) {
-                _setter = [StatusSetter16_1 new];
-            } else {
+            // A12 is special
+            struct utsname systemInfo;
+            uname(&systemInfo);
+            NSString* device = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+            if ([device isEqualToString:@"iPhone11,8"] ||
+                [device isEqualToString:@"iPhone11,2"] ||
+                [device isEqualToString:@"iPhone11,6"] ||
+                [device isEqualToString:@"iPhone11,4"] ||
+                [device isEqualToString:@"iPad11,3"] ||
+                [device isEqualToString:@"iPad11,4"] ||
+                [device isEqualToString:@"iPad11,1"] ||
+                [device isEqualToString:@"iPad11,2"] ||
+                [device isEqualToString:@"iPad11,6"] ||
+                [device isEqualToString:@"iPad11,7"] ||
+                [device isEqualToString:@"x86_64"]) {
                 _setter = [StatusSetter16 new];
+            } else {
+                _setter = [StatusSetter16_1 new];
             }
         } else if (@available(iOS 16, *)) {
             _setter = [StatusSetter16 new];
