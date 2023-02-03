@@ -186,8 +186,8 @@ typedef struct {
         
         char padding[256] = {'\0'};
 
-        size_t s1 = fwrite (overrides, sizeof(StatusBarOverrideData), 1, outfile);
-        size_t s2 = fwrite (padding, sizeof(padding), 1, outfile);
+        fwrite (overrides, sizeof(StatusBarOverrideData), 1, outfile);
+        fwrite (padding, sizeof(padding), 1, outfile);
 
         fclose (outfile);
     }

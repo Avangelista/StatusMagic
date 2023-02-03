@@ -24,6 +24,7 @@
 
 #import <UIKit/UIKit.h>
 #import <sys/utsname.h>
+//#import <mach-o/arch.h>
 #import "StatusManager.h"
 #import "StatusSetter.h"
 #import "StatusSetter16_1.h"
@@ -51,6 +52,9 @@
             struct utsname systemInfo;
             uname(&systemInfo);
             NSString* device = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+//            NXArchInfo *info = NXGetLocalArchInfo();
+//            NSString *typeOfCpu = [NSString stringWithUTF8String:info->description];
+//            [typeOfCpu isEqualToString:@"ARM64E"]
             if ([device isEqualToString:@"iPhone11,8"] ||
                 [device isEqualToString:@"iPhone11,2"] ||
                 [device isEqualToString:@"iPhone11,6"] ||

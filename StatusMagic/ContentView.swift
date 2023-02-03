@@ -107,50 +107,50 @@ struct ContentView: View {
                     })
                 }
 
-                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator")) {
-                    // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
-                    Group {
-                        Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideClock(nv)
-                        })
-                        Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideDND(nv)
-                        })
-                        Toggle("Hide Airplane Mode", isOn: $airplaneHidden).onChange(of: airplaneHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideAirplane(nv)
-                        })
-                        Toggle("Hide Cellular*", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideCell(nv)
-                        })
-                        Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideWiFi(nv)
-                        })
-                        Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideBattery(nv)
-                        })
-                        Toggle("Hide Bluetooth", isOn: $bluetoothHidden).onChange(of: bluetoothHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideBluetooth(nv)
-                        })
-                        Toggle("Hide Alarm", isOn: $alarmHidden).onChange(of: alarmHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideAlarm(nv)
-                        })
-                        Toggle("Hide Location", isOn: $locationHidden).onChange(of: locationHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideLocation(nv)
-                        })
-                        Toggle("Hide Rotation Lock", isOn: $rotationHidden).onChange(of: rotationHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideRotation(nv)
-                        })
-                    }
-                    Toggle("Hide AirPlay", isOn: $airPlayHidden).onChange(of: airPlayHidden, perform: { nv in
-                        StatusManager.sharedInstance().hideAirPlay(nv)
-                    })
-                    Toggle("Hide CarPlay", isOn: $carPlayHidden).onChange(of: carPlayHidden, perform: { nv in
-                        StatusManager.sharedInstance().hideCarPlay(nv)
-                    })
-                    Toggle("Hide VPN", isOn: $VPNHidden).onChange(of: VPNHidden, perform: { nv in
-                        StatusManager.sharedInstance().hideVPN(nv)
-                    })
-                }
+//                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular LTE/4G indicator")) {
+//                    // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
+//                    Group {
+//                        Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideClock(nv)
+//                        })
+//                        Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideDND(nv)
+//                        })
+//                        Toggle("Hide Airplane Mode", isOn: $airplaneHidden).onChange(of: airplaneHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideAirplane(nv)
+//                        })
+//                        Toggle("Hide Cellular*", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideCell(nv)
+//                        })
+//                        Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideWiFi(nv)
+//                        })
+//                        Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideBattery(nv)
+//                        })
+//                        Toggle("Hide Bluetooth", isOn: $bluetoothHidden).onChange(of: bluetoothHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideBluetooth(nv)
+//                        })
+//                        Toggle("Hide Alarm", isOn: $alarmHidden).onChange(of: alarmHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideAlarm(nv)
+//                        })
+//                        Toggle("Hide Location", isOn: $locationHidden).onChange(of: locationHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideLocation(nv)
+//                        })
+//                        Toggle("Hide Rotation Lock", isOn: $rotationHidden).onChange(of: rotationHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideRotation(nv)
+//                        })
+//                    }
+//                    Toggle("Hide AirPlay", isOn: $airPlayHidden).onChange(of: airPlayHidden, perform: { nv in
+//                        StatusManager.sharedInstance().hideAirPlay(nv)
+//                    })
+//                    Toggle("Hide CarPlay", isOn: $carPlayHidden).onChange(of: carPlayHidden, perform: { nv in
+//                        StatusManager.sharedInstance().hideCarPlay(nv)
+//                    })
+//                    Toggle("Hide VPN", isOn: $VPNHidden).onChange(of: VPNHidden, perform: { nv in
+//                        StatusManager.sharedInstance().hideVPN(nv)
+//                    })
+//                }
                 
                 Section (footer: Text("Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
                     Button("Reset All") {
