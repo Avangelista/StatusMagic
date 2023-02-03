@@ -58,7 +58,7 @@ struct StatusMagicApp: App {
             do {
                 try fm.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverridesEditing"))
             } catch {
-                print(error.localizedDescription)
+                UIApplication.shared.alert(body: "\(error)")
             }
         }
         

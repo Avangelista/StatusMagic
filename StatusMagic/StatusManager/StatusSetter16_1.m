@@ -189,22 +189,13 @@ typedef struct {
     } else {
         FILE *outfile;
         outfile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "w+");
-        if (outfile == NULL)
-        {
-            printf("Error opened file\n");
-            return;
-        }
+        if (outfile == NULL) return;
         
         char padding[256] = {'\0'};
 
         size_t s1 = fwrite (overrides, sizeof(StatusBarOverrideData), 1, outfile);
         size_t s2 = fwrite (padding, sizeof(padding), 1, outfile);
 
-        if(s1 != 0 && s2 != 0) {
-            printf("contents to file written successfully !\n");
-        } else {
-            printf("error writing file !\n");
-        }
         fclose (outfile);
     }
 }
@@ -220,11 +211,7 @@ typedef struct {
             NSMutableData* data = [NSMutableData dataWithLength:sizeof(StatusBarOverrideData)];
             StatusBarOverrideData* input = [data mutableBytes];
             infile = fopen ("/var/mobile/Library/SpringBoard/statusBarOverridesEditing", "r");
-            if (infile == NULL)
-            {
-                printf("Error opening file\n");
-                return NULL;
-            }
+            if (infile == NULL) return NULL;
             if (fread(input, sizeof(StatusBarOverrideData), 1, infile) != 0) {
                 fclose (infile);
                 return input;
