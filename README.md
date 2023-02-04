@@ -12,10 +12,9 @@
 </p>
 
 ## Features
-- Change carrier text, or leave it blank
-- Change the Status Bar clock text, or leave it blank
+- Change carrier text, clock text, and breadcrumb text - or leave them blank
 - Hide any icons you like in the Status Bar
-- Totally persistent!
+- Totally persistent between reboots and everything else!
 
 ## Installation
 - iOS 14.*: Install the app with [TrollStore](https://github.com/opa334/TrollStore)
