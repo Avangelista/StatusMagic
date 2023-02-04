@@ -30,8 +30,8 @@ typedef NS_ENUM(int, StatusBarItem) {
   AssistantStatusBarItem = 25,
   CarPlayStatusBarItem = 26,
   StudentStatusBarItem = 27,
-  VPNStatusBarItem = 28,
-  // 29
+  // 28
+  VPNStatusBarItem = 29,
   // 30
   // 31
   // 32
