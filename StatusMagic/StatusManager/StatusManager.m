@@ -177,14 +177,6 @@
     [self.setter hideCell:hidden];
 }
 
-- (bool) isDataHidden {
-    return [self.setter isDataHidden];
-}
-
-- (void) hideData:(bool)hidden {
-    [self.setter hideData:hidden];
-}
-
 - (bool) isWiFiHidden {
     return [self.setter isWiFiHidden];
 }

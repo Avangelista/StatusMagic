@@ -22,8 +22,6 @@
 - (void) hideAirplane:(bool)hidden;
 - (bool) isCellHidden;
 - (void) hideCell:(bool)hidden;
-- (bool) isDataHidden;
-- (void) hideData:(bool)hidden;
 - (bool) isWiFiHidden;
 - (void) hideWiFi:(bool)hidden;
 - (bool) isBatteryHidden;

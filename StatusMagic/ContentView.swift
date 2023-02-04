@@ -13,7 +13,6 @@ struct ContentView: View {
     @State private var DNDHidden: Bool = StatusManager.sharedInstance().isDNDHidden()
     @State private var airplaneHidden: Bool = StatusManager.sharedInstance().isAirplaneHidden()
     @State private var cellHidden: Bool = StatusManager.sharedInstance().isCellHidden()
-    @State private var dataHidden: Bool = StatusManager.sharedInstance().isDataHidden()
     @State private var wiFiHidden: Bool = StatusManager.sharedInstance().isWiFiHidden()
     @State private var batteryHidden: Bool = StatusManager.sharedInstance().isBatteryHidden()
     @State private var bluetoothHidden: Bool = StatusManager.sharedInstance().isBluetoothHidden()
@@ -108,7 +107,7 @@ struct ContentView: View {
                     })
                 }
 
-                Section (footer: Text("*Will also hide carrier name\n^Will also hide data indicator")) {
+                Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular data indicator")) {
                     // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
                     Group {
                         Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
@@ -123,18 +122,7 @@ struct ContentView: View {
                         Toggle("Hide Cellular*", isOn: $cellHidden).onChange(of: cellHidden, perform: { nv in
                             StatusManager.sharedInstance().hideCell(nv)
                         })
-                        Toggle("Hide Data Indicator", isOn: $dataHidden).onChange(of: dataHidden, perform: { nv in
-                            if !nv {
-                                wiFiHidden = false
-                            }
-                            StatusManager.sharedInstance().hideData(nv)
-                        })
                         Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
-                            if nv {
-                                dataHidden = true
-                            } else {
-                                dataHidden = false
-                            }
                             StatusManager.sharedInstance().hideWiFi(nv)
                         })
                         Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
@@ -149,10 +137,10 @@ struct ContentView: View {
                         Toggle("Hide Location", isOn: $locationHidden).onChange(of: locationHidden, perform: { nv in
                             StatusManager.sharedInstance().hideLocation(nv)
                         })
+                        Toggle("Hide Rotation Lock", isOn: $rotationHidden).onChange(of: rotationHidden, perform: { nv in
+                            StatusManager.sharedInstance().hideRotation(nv)
+                        })
                     }
-                    Toggle("Hide Rotation Lock", isOn: $rotationHidden).onChange(of: rotationHidden, perform: { nv in
-                        StatusManager.sharedInstance().hideRotation(nv)
-                    })
                     Toggle("Hide AirPlay", isOn: $airPlayHidden).onChange(of: airPlayHidden, perform: { nv in
                         StatusManager.sharedInstance().hideAirPlay(nv)
                     })
