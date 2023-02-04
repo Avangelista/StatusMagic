@@ -22,6 +22,9 @@
 - iOS 15.5 - 16.1.2: Install the app with [AltStore](https://altstore.io/) or [Sideloadly](https://sideloadly.io/) (excludes iOS 15.7.2 & 15.7.3)
 - iOS 16.2+: Not supported, and never will be
 
+> __Warning__ Esign has been known to have issues. To avoid it, use other installation methods.
+
+
 ## Credits
 - [Simulator Status Magic](https://github.com/shinydevelopment/SimulatorStatusMagic) - MIT
 - [grant_full_disk_access](https://gist.github.com/zhuowei/bc7a90bdc520556fda84d33e0583eb3e)
