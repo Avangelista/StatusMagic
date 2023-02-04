@@ -48,7 +48,7 @@
 - (id<StatusSetter>)setter {
     if (!_setter) {
         if (@available(iOS 16.1, *)) {
-            // A12 is special
+            // A12 is special for SOME REASON
             struct utsname systemInfo;
             uname(&systemInfo);
             NSString* device = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
@@ -175,6 +175,14 @@
 
 - (void) hideCell:(bool)hidden {
     [self.setter hideCell:hidden];
+}
+
+- (bool) isDataHidden {
+    return [self.setter isDataHidden];
+}
+
+- (void) hideData:(bool)hidden {
+    [self.setter hideData:hidden];
 }
 
 - (bool) isWiFiHidden {

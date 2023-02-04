@@ -369,6 +369,24 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (bool) isDataHidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    return overrides->overrideItemIsEnabled[CellularDataNetworkStatusBarItem] == 1;
+}
+
+- (void) hideData:(bool)hidden {
+    StatusBarOverrideData *overrides = [self getOverrides];
+    if (hidden) {
+        overrides->overrideItemIsEnabled[CellularDataNetworkStatusBarItem] = 1;
+        overrides->values.itemIsEnabled[CellularDataNetworkStatusBarItem] = 0;
+    } else {
+        overrides->overrideItemIsEnabled[CellularDataNetworkStatusBarItem] = 0;
+        overrides->overrideItemIsEnabled[SecondaryCellularDataNetworkStatusBarItem] = 0; // interferes with wi-fi so show that
+    }
+    
+    [self applyChanges:overrides];
+}
+
 - (bool) isWiFiHidden {
     StatusBarOverrideData *overrides = [self getOverrides];
     return overrides->overrideItemIsEnabled[CellularDataNetworkStatusBarItem] == 1;
