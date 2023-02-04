@@ -12,7 +12,7 @@
 </p>
 
 ## Features
-- Change carrier text, clock text, or breadcrumb text, or leave them blank
+- Change carrier text, clock text, and breadcrumb text - or leave them blank
 - Hide any icons you like in the Status Bar
 - Totally persistent between reboots and everything else!
 
