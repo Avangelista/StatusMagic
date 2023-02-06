@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2504F1EC2991ACB400F96B0D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2504F1EB2991ACB400F96B0D /* SettingsView.swift */; };
+		2504F1EE2991B3F800F96B0D /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2504F1ED2991B3F800F96B0D /* String++.swift */; };
 		25230F5D298B1ED80003C113 /* StatusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25230F5C298B1ED80003C113 /* StatusManager.m */; };
 		25230F5F298B20900003C113 /* StatusSetter16.m in Sources */ = {isa = PBXBuildFile; fileRef = 25230F5E298B20900003C113 /* StatusSetter16.m */; };
 		25230F61298B20A10003C113 /* StatusSetter14.m in Sources */ = {isa = PBXBuildFile; fileRef = 25230F60298B20A10003C113 /* StatusSetter14.m */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2504F1EB2991ACB400F96B0D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2504F1ED2991B3F800F96B0D /* String++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
 		25230F5B298B1BBF0003C113 /* StatusSetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatusSetter.h; sourceTree = "<group>"; };
 		25230F5C298B1ED80003C113 /* StatusManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusManager.m; sourceTree = "<group>"; };
 		25230F5E298B20900003C113 /* StatusSetter16.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatusSetter16.m; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		25230F70298B49420003C113 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2504F1ED2991B3F800F96B0D /* String++.swift */,
 				25E790B42989F0E200CBC97E /* Alert++.swift */,
 			);
 			path = Extensions;
@@ -124,6 +129,7 @@
 				25230F65298B34700003C113 /* Exploit */,
 				25230F6F298B49210003C113 /* StatusManager */,
 				257348492988BECD00308413 /* ContentView.swift */,
+				2504F1EB2991ACB400F96B0D /* SettingsView.swift */,
 				257348472988BECD00308413 /* StatusMagicApp.swift */,
 				2573484B2988BECE00308413 /* Assets.xcassets */,
 				2573484D2988BECE00308413 /* Preview Content */,
@@ -215,11 +221,13 @@
 				25E790B52989F0E200CBC97E /* Alert++.swift in Sources */,
 				25230F5D298B1ED80003C113 /* StatusManager.m in Sources */,
 				2573484A2988BECD00308413 /* ContentView.swift in Sources */,
+				2504F1EE2991B3F800F96B0D /* String++.swift in Sources */,
 				25CDCA522989C53F0019B3E8 /* StatusSetter15.m in Sources */,
 				25230F61298B20A10003C113 /* StatusSetter14.m in Sources */,
 				257348482988BECD00308413 /* StatusMagicApp.swift in Sources */,
 				25230F6C298B34700003C113 /* vm_unaligned_copy_switch_race.c in Sources */,
 				25230F5F298B20900003C113 /* StatusSetter16.m in Sources */,
+				2504F1EC2991ACB400F96B0D /* SettingsView.swift in Sources */,
 				25230F6D298B34700003C113 /* grant_full_disk_access.m in Sources */,
 				25230F6E298B34700003C113 /* helpers.m in Sources */,
 			);

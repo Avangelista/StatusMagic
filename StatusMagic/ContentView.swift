@@ -22,6 +22,8 @@ struct ContentView: View {
     @State private var airPlayHidden: Bool = StatusManager.sharedInstance().isAirPlayHidden()
     @State private var carPlayHidden: Bool = StatusManager.sharedInstance().isCarPlayHidden()
     @State private var VPNHidden: Bool = StatusManager.sharedInstance().isVPNHidden()
+//    @State private var microphoneUseHidden: Bool = StatusManager.sharedInstance().isMicrophoneUseHidden()
+//    @State private var cameraUseHidden: Bool = StatusManager.sharedInstance().isCameraUseHidden()
     
     let fm = FileManager.default
     
@@ -125,9 +127,11 @@ struct ContentView: View {
                         Toggle("Hide Wi-Fi^", isOn: $wiFiHidden).onChange(of: wiFiHidden, perform: { nv in
                             StatusManager.sharedInstance().hideWiFi(nv)
                         })
-                        Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideBattery(nv)
-                        })
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            Toggle("Hide Battery", isOn: $batteryHidden).onChange(of: batteryHidden, perform: { nv in
+                                StatusManager.sharedInstance().hideBattery(nv)
+                            })
+                        }
                         Toggle("Hide Bluetooth", isOn: $bluetoothHidden).onChange(of: bluetoothHidden, perform: { nv in
                             StatusManager.sharedInstance().hideBluetooth(nv)
                         })
@@ -150,10 +154,22 @@ struct ContentView: View {
                     Toggle("Hide VPN", isOn: $VPNHidden).onChange(of: VPNHidden, perform: { nv in
                         StatusManager.sharedInstance().hideVPN(nv)
                     })
+//                    Toggle("Hide Microphone Usage Dot", isOn: $microphoneUseHidden).onChange(of: microphoneUseHidden, perform: { nv in
+//                        StatusManager.sharedInstance().hideMicrophoneUse(nv)
+//                    })
+//                    Toggle("Hide Camera Usage Dot", isOn: $cameraUseHidden).onChange(of: cameraUseHidden, perform: { nv in
+//                        StatusManager.sharedInstance().hideCameraUse(nv)
+//                    })
+                }
+                
+                if #available(iOS 15.0, *) {
+                    Section (footer: Text("Go here if something isn't working correctly.")) {
+                        NavigationLink(destination: SettingsView(), label: { Text("Settings") })
+                    }
                 }
                 
                 Section (footer: Text("Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion \(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")\nUsing \(StatusManager.sharedInstance().isMDCMode() ? "MacDirtyCOW" : "TrollStore")")) {
-                    Button("Reset All") {
+                    Button("Reset to Defaults") {
                         if fm.fileExists(atPath: "/var/mobile/Library/SpringBoard/statusBarOverrides") {
                             do {
                                 try fm.removeItem(at: URL(fileURLWithPath: "/var/mobile/Library/SpringBoard/statusBarOverrides"))

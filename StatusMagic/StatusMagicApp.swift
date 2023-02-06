@@ -1,13 +1,27 @@
 import SwiftUI
+import Darwin
 
 @main
 struct StatusMagicApp: App {
+    init() {
+        registerDefaults()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView().onAppear {
                 checkAndEscape()
+                checkForUpdates()
             }
         }
+    }
+    
+    func registerDefaults() {
+        UserDefaults.standard.register(defaults: [
+            "ForceMDC": false,
+            "UseAlternativeSetter": false,
+            "ShowUnsupported": true
+        ])
     }
     
     func checkAndEscape() {
@@ -15,9 +29,16 @@ struct StatusMagicApp: App {
         StatusManager.sharedInstance().setIsMDCMode(false)
 #else
         var supported = false
+        var maybeSupported = false
         var needsTrollStore = false
-        if #available(iOS 16.2, *) {
+        if #available(iOS 16.3, *) {
 //            supported = false
+        } else if #available(iOS 16.2, *) {
+            if UserDefaults.standard.bool(forKey: "ShowUnsupported") {
+                maybeSupported = true
+            } else {
+                supported = true
+            }
         } else if #available(iOS 16.0, *) {
             supported = true
         } else if #available(iOS 15.7.2, *) {
@@ -29,15 +50,32 @@ struct StatusMagicApp: App {
             needsTrollStore = true
         }
         
-        if !supported {
+        if maybeSupported {
             UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported. Please close the app.", withButton: false)
-            return
+            UIApplication.shared.confirmAlert(title: "Not Supported", body: "This version of iOS is likely not supported. Unless you know for certain that it is, please close the app.\n\nAre you certain this version is supported? The app will relaunch.", onOK: {
+                UserDefaults.standard.set(false, forKey: "ShowUnsupported")
+                UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+                    exit(0)
+                }
+            })
+        } else if !supported {
+            UIApplication.shared.alert(title: "Not Supported", body: "This version of iOS is not supported. Please close the app.", withButton: false)
+        } else {
+            getRootFS(needsTrollStore: needsTrollStore)
         }
-            
+#endif
+    }
+    
+    func getRootFS(needsTrollStore: Bool) {
         do {
             // Check if application is entitled
             try FileManager.default.contentsOfDirectory(at: URL(fileURLWithPath: "/var/mobile"), includingPropertiesForKeys: nil)
-            StatusManager.sharedInstance().setIsMDCMode(false)
+            if UserDefaults.standard.bool(forKey: "ForceMDC") {
+                throw "Forced MDC"
+            } else {
+                StatusManager.sharedInstance().setIsMDCMode(false)
+            }
         } catch {
             if needsTrollStore {
                 UIApplication.shared.alert(title: "Use TrollStore", body: "You must install this app with TrollStore for it to work with this version of iOS. Please close the app.", withButton: false)
@@ -61,9 +99,6 @@ struct StatusMagicApp: App {
                 UIApplication.shared.alert(body: "\(error)")
             }
         }
-        
-        checkForUpdates()
-#endif
     }
     
     func checkForUpdates() {
