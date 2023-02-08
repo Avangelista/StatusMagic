@@ -112,9 +112,9 @@ struct ContentView: View {
                 Section (footer: Text("*Will also hide carrier name\n^Will also hide cellular data indicator")) {
                     // bruh I had to add a group cause SwiftUI won't let you add more than 10 things to a view?? ok
                     Group {
-                        Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
-                            StatusManager.sharedInstance().hideClock(nv)
-                        })
+//                        Toggle("Hide Status Bar Time", isOn: $clockHidden).onChange(of: clockHidden, perform: { nv in
+//                            StatusManager.sharedInstance().hideClock(nv)
+//                        })
                         Toggle("Hide Do Not Disturb", isOn: $DNDHidden).onChange(of: DNDHidden, perform: { nv in
                             StatusManager.sharedInstance().hideDND(nv)
                         })
