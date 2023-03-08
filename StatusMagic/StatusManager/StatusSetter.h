@@ -44,5 +44,8 @@
 - (void) hideMicrophoneUse:(bool)hidden;
 - (bool) isCameraUseHidden;
 - (void) hideCameraUse:(bool)hidden;
+- (int) getStyleOverrides;
+- (void) addStyleOverrides:(int)overrides;
+- (void) removeStyleOverrides:(int)overrides;
 
 @end

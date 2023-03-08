@@ -248,4 +248,16 @@
     [self.setter hideCameraUse:hidden];
 }
 
+- (bool)hasStyleOverrides:(StatusManagerStyle)style {
+    return [self.setter getStyleOverrides] & style;
+}
+
+- (void)addStyleOverrides:(StatusManagerStyle)style {
+    [self.setter addStyleOverrides:style];
+}
+
+- (void)removeStyleOverrides:(StatusManagerStyle)style {
+    [self.setter removeStyleOverrides:style];
+}
+
 @end

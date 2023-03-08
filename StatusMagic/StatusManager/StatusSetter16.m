@@ -570,4 +570,17 @@ typedef struct {
     [self applyChanges:overrides];
 }
 
+- (int)getStyleOverrides {
+    // NOT TESTED
+    return 0;
+}
+
+- (void)addStyleOverrides:(int)overrides {
+    // NOT TESTED
+}
+
+- (void)removeStyleOverrides:(int)overrides {
+    // NOT TESTED
+}
+
 @end
