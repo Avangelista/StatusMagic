@@ -4,6 +4,8 @@
 <dict>
 	<key>com.apple.UIKit.status-bar-override-allow</key>
 	<true/>
+	<key>com.apple.springboard.statusbarstyleoverrides</key>
+	<true/>
 	<key>com.apple.security.exception.files.absolute-path.read-write</key>
 	<array>
 		<string>/</string>

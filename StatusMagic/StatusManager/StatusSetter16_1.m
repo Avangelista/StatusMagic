@@ -176,6 +176,7 @@ typedef struct {
 + (void)permanentizeStatusBarOverrideData;
 + (StatusBarOverrideData *)getStatusBarOverrideData;
 
+
 @end
 
 @implementation StatusSetter16_1
@@ -569,6 +570,19 @@ typedef struct {
     }
     
     [self applyChanges:overrides];
+}
+
+- (int)getStyleOverrides {
+    // NOT TESTED
+    return 0;
+}
+
+- (void)addStyleOverrides:(int)overrides {
+    // NOT TESTED
+}
+
+- (void)removeStyleOverrides:(int)overrides {
+    // NOT TESTED
 }
 
 @end

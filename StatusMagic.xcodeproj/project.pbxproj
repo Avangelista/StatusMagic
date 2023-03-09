@@ -81,17 +81,17 @@
 		25230F6F298B49210003C113 /* StatusManager */ = {
 			isa = PBXGroup;
 			children = (
+				25230F64298B21CC0003C113 /* StatusManager.h */,
+				25230F5C298B1ED80003C113 /* StatusManager.m */,
+				25230F5B298B1BBF0003C113 /* StatusSetter.h */,
+				25230F63298B20B60003C113 /* StatusSetter14.h */,
+				25230F60298B20A10003C113 /* StatusSetter14.m */,
+				25CDCA362989C53E0019B3E8 /* StatusSetter15.h */,
+				25CDCA422989C53E0019B3E8 /* StatusSetter15.m */,
 				25941880298D2F4F00727EFA /* StatusSetter16_1.h */,
 				25941881298D2F8D00727EFA /* StatusSetter16_1.m */,
 				25230F62298B20AB0003C113 /* StatusSetter16.h */,
 				25230F5E298B20900003C113 /* StatusSetter16.m */,
-				25CDCA362989C53E0019B3E8 /* StatusSetter15.h */,
-				25CDCA422989C53E0019B3E8 /* StatusSetter15.m */,
-				25230F63298B20B60003C113 /* StatusSetter14.h */,
-				25230F60298B20A10003C113 /* StatusSetter14.m */,
-				25230F5B298B1BBF0003C113 /* StatusSetter.h */,
-				25230F5C298B1ED80003C113 /* StatusManager.m */,
-				25230F64298B21CC0003C113 /* StatusManager.h */,
 			);
 			path = StatusManager;
 			sourceTree = "<group>";
