@@ -174,6 +174,10 @@ typedef struct {
 + (void)permanentizeStatusBarOverrideData;
 + (StatusBarOverrideData *)getStatusBarOverrideData;
 
++ (int)getStyleOverrides;
++ (void)addStyleOverrides:(int)arg1;
++ (void)removeStyleOverrides:(int)arg1;
+
 @end
 
 @implementation StatusSetter16
@@ -571,16 +575,15 @@ typedef struct {
 }
 
 - (int)getStyleOverrides {
-    // NOT TESTED
-    return 0;
+    return [UIStatusBarServer getStyleOverrides];
 }
 
 - (void)addStyleOverrides:(int)overrides {
-    // NOT TESTED
+    [UIStatusBarServer addStyleOverrides:overrides];
 }
 
 - (void)removeStyleOverrides:(int)overrides {
-    // NOT TESTED
+    [UIStatusBarServer removeStyleOverrides:overrides];
 }
 
 @end

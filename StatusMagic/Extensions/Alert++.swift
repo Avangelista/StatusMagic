@@ -10,26 +10,26 @@ extension UIApplication {
             currentUIAlertController?.dismiss(animated: animated)
         }
     }
-    func alert(title: String = "Error", body: String, animated: Bool = true, withButton: Bool = true) {
+    func alert(title: String = NSLocalizedString("Error", comment: ""), body: String, animated: Bool = true, withButton: Bool = true) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
-            if withButton { currentUIAlertController?.addAction(.init(title: "OK", style: .cancel)) }
+            if withButton { currentUIAlertController?.addAction(.init(title: NSLocalizedString("OK", comment: ""), style: .cancel)) }
             self.present(alert: currentUIAlertController!)
         }
     }
-    func confirmAlert(title: String = "Error", body: String, onOK: @escaping () -> (), noCancel: Bool = false) {
+    func confirmAlert(title: String = NSLocalizedString("Error", comment: ""), body: String, onOK: @escaping () -> (), noCancel: Bool = false) {
         DispatchQueue.main.async {
             currentUIAlertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
             if !noCancel {
-                currentUIAlertController?.addAction(.init(title: "No", style: .cancel))
+                currentUIAlertController?.addAction(.init(title: NSLocalizedString("No", comment: ""), style: .cancel))
             }
-            currentUIAlertController?.addAction(.init(title: "Yes", style: noCancel ? .cancel : .default, handler: { _ in
+            currentUIAlertController?.addAction(.init(title: NSLocalizedString("Yes", comment: ""), style: noCancel ? .cancel : .default, handler: { _ in
                 onOK()
             }))
             self.present(alert: currentUIAlertController!)
         }
     }
-    func change(title: String = "Error", body: String) {
+    func change(title: String = NSLocalizedString("Error", comment: ""), body: String) {
         DispatchQueue.main.async {
             currentUIAlertController?.title = title
             currentUIAlertController?.message = body
