@@ -22,6 +22,7 @@
 		25941882298D2F8D00727EFA /* StatusSetter16_1.m in Sources */ = {isa = PBXBuildFile; fileRef = 25941881298D2F8D00727EFA /* StatusSetter16_1.m */; };
 		25CDCA522989C53F0019B3E8 /* StatusSetter15.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CDCA422989C53E0019B3E8 /* StatusSetter15.m */; };
 		25E790B52989F0E200CBC97E /* Alert++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E790B42989F0E200CBC97E /* Alert++.swift */; };
+		CCB2ABAE29BA18A900187DAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCB2ABB029BA18A900187DAC /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		25CDCA362989C53E0019B3E8 /* StatusSetter15.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusSetter15.h; sourceTree = "<group>"; };
 		25CDCA422989C53E0019B3E8 /* StatusSetter15.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusSetter15.m; sourceTree = "<group>"; };
 		25E790B42989F0E200CBC97E /* Alert++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Alert++.swift"; sourceTree = "<group>"; };
+		CCB2ABAF29BA18A900187DAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CCB2ABB529BA1A0D00187DAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,7 @@
 		257348462988BECD00308413 /* StatusMagic */ = {
 			isa = PBXGroup;
 			children = (
+				CCB2ABB029BA18A900187DAC /* Localizable.strings */,
 				257348562988C18500308413 /* StatusMagic.entitlements */,
 				25230F70298B49420003C113 /* Extensions */,
 				25230F65298B34700003C113 /* Exploit */,
@@ -189,6 +193,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 2573483B2988BECD00308413;
 			productRefGroup = 257348452988BECD00308413 /* Products */;
@@ -206,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2573484F2988BECE00308413 /* Preview Assets.xcassets in Resources */,
+				CCB2ABAE29BA18A900187DAC /* Localizable.strings in Resources */,
 				2573484C2988BECE00308413 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,11 +241,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		CCB2ABB029BA18A900187DAC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCB2ABAF29BA18A900187DAC /* en */,
+				CCB2ABB529BA1A0D00187DAC /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		257348502988BECE00308413 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -300,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -356,14 +376,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_ENTITLEMENTS = StatusMagic/StatusMagic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StatusMagic/Preview Content\"";
-				DEVELOPMENT_TEAM = U67AKNW8PW;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StatusMagic;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Tap \"OK\" to continue.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -394,14 +416,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGN_ENTITLEMENTS = StatusMagic/StatusMagic.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StatusMagic/Preview Content\"";
-				DEVELOPMENT_TEAM = U67AKNW8PW;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = StatusMagic;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Tap \"OK\" to continue.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

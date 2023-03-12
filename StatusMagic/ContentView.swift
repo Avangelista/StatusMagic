@@ -365,7 +365,7 @@ struct ContentView: View {
                 }
                 
                 if #available(iOS 15.0, *) {
-                    Section (footer: Text("Go here if something isn't working correctly.")) {
+                    Section (footer: Text("Go here if something isn’t working correctly.")) {
                         NavigationLink(destination: SettingsView(), label: { Text("Settings") })
                     }
                 }

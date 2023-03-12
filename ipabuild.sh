@@ -50,6 +50,6 @@ zip -vr "$APPLICATION_NAME.ipa" Payload
 rm -rf $APPLICATION_NAME.app
 rm -rf Payload
 rm -rf DerivedData
-mv "$APPLICATION_NAME.ipa" "../$APPLICATION_NAME.ipa"
+mv "$APPLICATION_NAME.ipa" "../$APPLICATION_NAME.tipa"
 cd ..
 rm -rf build
