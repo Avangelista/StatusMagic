@@ -1,0 +1,207 @@
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Will also hide carrier name\n^Will also hide cellular data indicator";
+
+/* No comment provided by engineer. */
+"%@\nPlease close the app and retry." = "%@\nPlease close the app and retry.";
+
+/* No comment provided by engineer. */
+"A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?" = "A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?";
+
+/* No comment provided by engineer. */
+"Activity" = "Activity";
+
+/* No comment provided by engineer. */
+"AirPlay" = "AirPlay";
+
+/* No comment provided by engineer. */
+"AirPrint" = "AirPrint";
+
+/* No comment provided by engineer. */
+"Apply" = "Apply";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "Breadcrumb Text";
+
+/* No comment provided by engineer. */
+"Camera Calling" = "Camera Calling";
+
+/* No comment provided by engineer. */
+"Camera Recording" = "Camera Recording";
+
+/* No comment provided by engineer. */
+"CarPlay" = "CarPlay";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "Carrier Text";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "Change Breadcrumb Text";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "Change Carrier Text";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "Change Status Bar Time Text";
+
+/* No comment provided by engineer. */
+"Customize Texts" = "Customize Texts";
+
+/* No comment provided by engineer. */
+"Diagnosis" = "Diagnosis";
+
+/* No comment provided by engineer. */
+"Error" = "Error";
+
+/* No comment provided by engineer. */
+"Force MacDirtyCOW" = "Force MacDirtyCOW";
+
+/* No comment provided by engineer. */
+"Go here if something isn’t working correctly." = "Go here if something isn’t working correctly.";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "Hide Airplane Mode";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "Hide AirPlay";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "Hide Alarm";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "Hide Battery";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "Hide Bluetooth";
+
+/* No comment provided by engineer. */
+"Hide Camera Usage Dot" = "Hide Camera Usage Dot";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "Hide CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "Hide Cellular*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "Hide Do Not Disturb";
+
+/* No comment provided by engineer. */
+"Hide Items" = "Hide Items";
+
+/* No comment provided by engineer. */
+"Hide Location" = "Hide Location";
+
+/* No comment provided by engineer. */
+"Hide Microphone Usage Dot" = "Hide Microphone Usage Dot";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "Hide Rotation Lock";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "Hide VPN";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "Hide Wi-Fi^";
+
+/* No comment provided by engineer. */
+"Incoming Camera Calling" = "Incoming Camera Calling";
+
+/* No comment provided by engineer. */
+"Incoming Phone Calling" = "Incoming Phone Calling";
+
+/* No comment provided by engineer. */
+"Microphone Recording" = "Microphone Recording";
+
+/* No comment provided by engineer. */
+"Mirroring" = "Mirroring";
+
+/* No comment provided by engineer. */
+"Navigation" = "Navigation";
+
+/* No comment provided by engineer. */
+"No" = "No";
+
+/* No comment provided by engineer. */
+"Not Supported" = "Not Supported";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Override Styles" = "Override Styles";
+
+/* No comment provided by engineer. */
+"Personal Hotspot" = "Personal Hotspot";
+
+/* No comment provided by engineer. */
+"Phone Calling" = "Phone Calling";
+
+/* No comment provided by engineer. */
+"Reset to Defaults" = "Reset to Defaults";
+
+/* No comment provided by engineer. */
+"Save Settings" = "Save Settings";
+
+/* No comment provided by engineer. */
+"Screen Recording" = "Screen Recording";
+
+/* No comment provided by engineer. */
+"Settings" = "Settings";
+
+/* No comment provided by engineer. */
+"Siri" = "Siri";
+
+/* No comment provided by engineer. */
+"SOS" = "SOS";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "Status Bar Time Text";
+
+/* No comment provided by engineer. */
+"StatusMagic" = "StatusMagic";
+
+/* No comment provided by engineer. */
+"The app will quit." = "The app will quit.";
+
+/* No comment provided by engineer. */
+"This version of iOS is likely not supported. Unless you know for certain that it is, please close the app.\n\nAre you certain this version is supported? The app will relaunch." = "This version of iOS is likely not supported. Unless you know for certain that it is, please close the app.\n\nAre you certain this version is supported? The app will relaunch.";
+
+/* No comment provided by engineer. */
+"This version of iOS is not supported. Please close the app." = "This version of iOS is not supported. Please close the app.";
+
+/* No comment provided by engineer. */
+"Update Available" = "Update Available";
+
+/* No comment provided by engineer. */
+"Use Alternative Setter" = "Use Alternative Setter";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving.";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic.";
+
+/* No comment provided by engineer. */
+"Use TrollStore" = "Use TrollStore";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "When set to blank on notched devices, this will display the carrier name.";
+
+/* No comment provided by engineer. */
+"Will be restored when app quits." = "Will be restored when app quits.";
+
+/* No comment provided by engineer. */
+"Wired Adapter" = "Wired Adapter";
+
+/* No comment provided by engineer. */
+"Yes" = "Yes";
+
+/* No comment provided by engineer. */
+"You must install this app with TrollStore for it to work with this version of iOS. Please close the app." = "You must install this app with TrollStore for it to work with this version of iOS. Please close the app.";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "Your device will respring.";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion %@\nUsing %@" = "Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion %1$@\nUsing %2$@";
+
