@@ -1,14 +1,14 @@
 /* No comment provided by engineer. */
-"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*Will also hide carrier name\n^Will also hide cellular data indicator";
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*改變此設定會隱藏電信名稱\n^改變此設定亦隱藏行動數據狀態";
 
 /* No comment provided by engineer. */
-"%@\nPlease close the app and retry." = "%@\nPlease close the app and retry.";
+"%@\nPlease close the app and retry." = "%@\n請重開應用程式";
 
 /* No comment provided by engineer. */
-"A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?" = "A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?";
+"A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?" = "有較新版本的 StatusMagic，是否查看釋出資料？";
 
 /* No comment provided by engineer. */
-"Activity" = "Activity";
+"Activity" = "";
 
 /* No comment provided by engineer. */
 "AirPlay" = "AirPlay";
