@@ -1,0 +1,207 @@
+/* No comment provided by engineer. */
+"*Will also hide carrier name\n^Will also hide cellular data indicator" = "*改變此設定會隱藏電信名稱\n^改變此設定亦隱藏行動數據狀態";
+
+/* No comment provided by engineer. */
+"%@\nPlease close the app and retry." = "%@\n請重開應用程式";
+
+/* No comment provided by engineer. */
+"A new version of StatusMagic is available. It is recommended you update to avoid encountering bugs. Would you like to view the releases page?" = "有較新版本的 StatusMagic，建議更新至最新已排除錯誤，是否查看釋出資料？";
+
+/* No comment provided by engineer. */
+"Activity" = "活動";
+
+/* No comment provided by engineer. */
+"AirPlay" = "AirPlay";
+
+/* No comment provided by engineer. */
+"AirPrint" = "AirPrint";
+
+/* No comment provided by engineer. */
+"Apply" = "套用";
+
+/* No comment provided by engineer. */
+"Breadcrumb Text" = "狀態欄返回鍵文字";
+
+/* 需修正 */
+"Camera Calling" = "綠色視訊狀態欄";
+
+/* No comment provided by engineer. */
+"Camera Recording" = "綠色攝影狀態欄";
+
+/* No comment provided by engineer. */
+"CarPlay" = "CarPlay";
+
+/* No comment provided by engineer. */
+"Carrier Text" = "電信名稱";
+
+/* No comment provided by engineer. */
+"Change Breadcrumb Text" = "更改狀態欄返回鍵文字";
+
+/* No comment provided by engineer. */
+"Change Carrier Text" = "更改電信名稱";
+
+/* No comment provided by engineer. */
+"Change Status Bar Time Text" = "更改時間文字";
+
+/* No comment provided by engineer. */
+"Customize Texts" = "自訂文字";
+
+/* No comment provided by engineer. */
+"Diagnosis" = "診斷";
+
+/* No comment provided by engineer. */
+"Error" = "錯誤";
+
+/* No comment provided by engineer. */
+"Force MacDirtyCOW" = "強迫使用 MacDirtyCOW 漏洞";
+
+/* 需修正 */
+"Go here if something isn’t working correctly." = "如果套用設定之後沒有達到預期效果請看這裡";
+
+/* No comment provided by engineer. */
+"Hide Airplane Mode" = "隱藏飛航模式";
+
+/* No comment provided by engineer. */
+"Hide AirPlay" = "隱藏 AirPlay";
+
+/* No comment provided by engineer. */
+"Hide Alarm" = "隱藏鬧鐘";
+
+/* No comment provided by engineer. */
+"Hide Battery" = "隱藏電量";
+
+/* No comment provided by engineer. */
+"Hide Bluetooth" = "隱藏藍牙";
+
+/* No comment provided by engineer. */
+"Hide Camera Usage Dot" = "隱藏相機錄影綠點";
+
+/* No comment provided by engineer. */
+"Hide CarPlay" = "隱藏 CarPlay";
+
+/* No comment provided by engineer. */
+"Hide Cellular*" = "隱藏電信名稱*";
+
+/* No comment provided by engineer. */
+"Hide Do Not Disturb" = "隱藏勿擾模式";
+
+/* No comment provided by engineer. */
+"Hide Items" = "隱藏元件";
+
+/* No comment provided by engineer. */
+"Hide Location" = "隱藏定位服務";
+
+/* No comment provided by engineer. */
+"Hide Microphone Usage Dot" = "隱藏錄音橘點";
+
+/* No comment provided by engineer. */
+"Hide Rotation Lock" = "隱藏螢幕轉向鎖定";
+
+/* No comment provided by engineer. */
+"Hide VPN" = "隱藏 VPN";
+
+/* No comment provided by engineer. */
+"Hide Wi-Fi^" = "隱藏 Wi-Fi^";
+
+/* 需修正 */
+"Incoming Camera Calling" = "當前打來視訊";
+
+/* 需修正 */
+"Incoming Phone Calling" = "當前打來電話";
+
+/* No comment provided by engineer. */
+"Microphone Recording" = "正在錄音";
+
+/* No comment provided by engineer. */
+"Mirroring" = "正在投放畫面";
+
+/* No comment provided by engineer. */
+"Navigation" = "瀏覽";
+
+/* No comment provided by engineer. */
+"No" = "無";
+
+/* No comment provided by engineer. */
+"Not Supported" = "不支援";
+
+/* No comment provided by engineer. */
+"OK" = "確認";
+
+/* No comment provided by engineer. */
+"Override Styles" = "覆寫樣式";
+
+/* No comment provided by engineer. */
+"Personal Hotspot" = "個人熱點";
+
+/* No comment provided by engineer. */
+"Phone Calling" = "電話";
+
+/* No comment provided by engineer. */
+"Reset to Defaults" = "回復預設設定";
+
+/* No comment provided by engineer. */
+"Save Settings" = "儲存設定";
+
+/* No comment provided by engineer. */
+"Screen Recording" = "螢幕錄製";
+
+/* No comment provided by engineer. */
+"Settings" = "設定";
+
+/* No comment provided by engineer. */
+"Siri" = "Siri";
+
+/* No comment provided by engineer. */
+"SOS" = "SOS";
+
+/* No comment provided by engineer. */
+"Status Bar Time Text" = "狀態欄時間文字";
+
+/* No comment provided by engineer. */
+"StatusMagic" = "StatusMagic";
+
+/* No comment provided by engineer. */
+"The app will quit." = "此應用程式即將關閉";
+
+/* No comment provided by engineer. */
+"This version of iOS is likely not supported. Unless you know for certain that it is, please close the app.\n\nAre you certain this version is supported? The app will relaunch." = "此 iOS 版本很可能不支援此應用程式除非你很確定自己在幹嘛，否則請關閉應用程式\n\n你是否確定此 iOS 版本有支援？此應用程式將重啟";
+
+/* No comment provided by engineer. */
+"This version of iOS is not supported. Please close the app." = "此 iOS 版本不支援此應用程式，請關閉它。";
+
+/* No comment provided by engineer. */
+"Update Available" = "有可用更新";
+
+/* 需修正 */
+"Use Alternative Setter" = "使用其他設定器";
+
+/* No comment provided by engineer. */
+"Use this if carrier/time text isn't applying. I would recommend you Reset to Defaults after turning on and saving." = "如果電信名稱/時間文字未套用設定，可使用此設定。建議在開啟此設定後使用「回復預設設定」。";
+
+/* No comment provided by engineer. */
+"Use this if your device is erroneously detecting TrollStore installed, and you do not have an Apply button at the top of StatusMagic." = "如果此應用程式誤判有安裝 TrollStore 並且在 StatusMagic 上方沒有套用按鈕可開啟此設定。";
+
+/* No comment provided by engineer. */
+"Use TrollStore" = "使用 TrollStore";
+
+/* No comment provided by engineer. */
+"When set to blank on notched devices, this will display the carrier name." = "如果欄位為空將設為電信名稱";
+
+/* No comment provided by engineer. */
+"Will be restored when app quits." = "關閉應用程式後將回復預設設定";
+
+/* No comment provided by engineer. */
+"Wired Adapter" = "有線網路";
+
+/* No comment provided by engineer. */
+"Yes" = "確認";
+
+/* No comment provided by engineer. */
+"You must install this app with TrollStore for it to work with this version of iOS. Please close the app." = "你必須安裝 TrollStore 才可讓此 iOS 版本支援此應用程式，請關閉此應用程式";
+
+/* No comment provided by engineer. */
+"Your device will respring." = "你的裝置將重新啟動主畫面";
+
+/* No comment provided by engineer. */
+"Your device will respring.\n\n\nStatusMagic by Avangelista\nVersion %@\nUsing %@" = "你的裝置將重新啟動主畫面\n\n\nStatusMagic 作者：Avangelista\n版本 %1$@\n正在使用 %2$@";
+
